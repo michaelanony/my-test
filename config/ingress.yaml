@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: my-test-ingress
+  namespace: my-test
+spec:
+  rules:
+    - host: test.michaelchen.cn
+      http:
+        paths:
+          - backend:
+              serviceName: my-test-svc
+              servicePort: 4000
+            path: /

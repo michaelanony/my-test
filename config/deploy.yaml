@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: my-test
+  labels:
+    app: test
+    component: backend
+  name: my-test-backend
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: test
+      component: backend
+  template:
+    metadata:
+      labels:
+        app: test
+        component: backend
+    spec:
+      containers:
+        - image: 
+          name: my-test
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4000
+              name: port
+              protocol: TCP
